@@ -6,9 +6,12 @@ from security import authenticate, identity
 from resources.user import UserRegister
 from resources.item import Item, ItemList
 
+from db import db
+
 # Creates Flask app
 app = Flask(__name__)
-app.secret_key = 'cesar'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = 'jose'
 # Creates API for app
 api = Api(app)
 
