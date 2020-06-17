@@ -16,6 +16,10 @@ app.secret_key = 'jose'
 # Creates API for app
 api = Api(app)
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
 # Allows authentification of users
 jwt = JWT(app, authenticate, identity)
 
